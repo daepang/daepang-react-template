@@ -8,6 +8,10 @@
 /.pnp
 .pnp.js
 
+# lock file
+package-lock.json
+yarn.lock
+
 # testing
 /coverage
 
