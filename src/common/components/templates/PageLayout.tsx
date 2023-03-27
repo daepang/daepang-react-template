@@ -8,7 +8,7 @@ const PageLayout = ({ children }: Props) => {
   return (
     <>
       <section>
-        <section>{children}</section>
+        <section className={'container'}>{children}</section>
       </section>
     </>
   );
