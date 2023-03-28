@@ -17,10 +17,10 @@
     top: 10px;
     width: 30px;
     height: 30px;
-    background: #0ff;
-    -webkit-background-size: 13px auto;
     background-size: 13px auto;
     border-radius: 50%;
+    background: #0ff;
+    -webkit-background-size: 13px auto;
 }
 input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
     padding: 0 12px;
@@ -32,6 +32,6 @@ input[type="text"], input[type="password"], input[type="email"], input[type="tel
     letter-spacing: -0.7px;
     border: 1px solid #e6e6e6;
     border-radius: 6px;
-    -webkit-appearance: none;
     appearance: none;
+    -webkit-appearance: none;
 }
