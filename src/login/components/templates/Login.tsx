@@ -1,6 +1,10 @@
 import React from 'react';
+import { useRecoilState } from 'recoil';
+
+import { loginState } from 'src/store';
 
 const Login = () => {
+  const [loginInfo, setLoginInfo] = useRecoilState(loginState);
   return (
     <>
       <div className={'login'}>
