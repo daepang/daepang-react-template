@@ -5,6 +5,7 @@
 - Node.js : 17.3.1
 - React : 18.2.0
 - Typescript : 4.9.4
+- Recoil : 0.7.7
 
 ### 패키지 관리
 
