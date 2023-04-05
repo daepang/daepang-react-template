@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { loginState } from 'src/store';
 
+import { fetchLoginProc } from 'src/login/api/index';
+
 const Login = () => {
   const [loginInfo, setLoginInfo] = useRecoilState(loginState);
+
+  // Login Proc API 통신 테스트 소스
+  const callLogin = async () => {
+    const apiResult = await fetchLoginProc();
+
+    console.log('login result : ' + apiResult);
+  };
+
+  useEffect(() => {
+    callLogin();
+  }, []);
+
   return (
     <>
       <div className={'login'}>
