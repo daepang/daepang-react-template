@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { loginState } from 'src/store';
@@ -7,24 +7,27 @@ import { fetchLoginProc } from 'src/login/api/index';
 
 const Login = () => {
   const [loginInfo, setLoginInfo] = useRecoilState(loginState);
+  const [inputId, setInputId] = useState<string>('');
+  const [inputPw, setInputPw] = useState<string>('');
 
   // Login Proc API 통신 테스트 소스
-  const callLogin = async () => {
-    const apiResult = await fetchLoginProc();
-
+  const loginProc = async () => {
+    const apiResult = await fetchLoginProc({ id: inputId, pw: inputPw });
     console.log('login result : ' + apiResult);
   };
-
-  useEffect(() => {
-    callLogin();
-  }, []);
 
   return (
     <>
       <div className={'login'}>
         <div className={'input_form'}>
           <span className={'inp'} id='loginid-span'>
-            <input type='text' placeholder='아이디 입력' title='아이디 입력' />
+            <input
+              type='text'
+              placeholder='아이디 입력'
+              title='아이디 입력'
+              value={inputId}
+              onChange={e => setInputId(e.target.value)}
+            />
             <button className={'btn_del'} type='button'>
               <span className={'blind'}>삭제</span>
             </button>
@@ -32,7 +35,13 @@ const Login = () => {
         </div>
         <div className={'input_form'}>
           <span className={'inp'}>
-            <input type='password' placeholder='비밀번호 입력 (영문, 숫자, 특수문자 조합)' title='비밀번호 입력' />
+            <input
+              type='password'
+              placeholder='비밀번호 입력 (영문, 숫자, 특수문자 조합)'
+              title='비밀번호 입력'
+              value={inputPw}
+              onChange={e => setInputPw(e.target.value)}
+            />
             <button className={'btn_del'} type='button'>
               <span className={'blind'}>삭제</span>
             </button>
@@ -50,7 +59,7 @@ const Login = () => {
           </span>
         </div>
         <div className={'login_btn'}>
-          <button className={'btnA btn_blue loginbtn'} type='button'>
+          <button className={'btnA btn_blue loginbtn'} type='button' onClick={() => loginProc()}>
             로그인
           </button>
         </div>

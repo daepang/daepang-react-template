@@ -1,11 +1,13 @@
 import axiosInstance from 'src/common/api/index';
 
-export const fetchLoginProc = async () => {
+import { loginParam } from 'src/login/type/login';
+
+export const fetchLoginProc = async (param: loginParam) => {
   try {
     const result = await axiosInstance({
       url: '/login/proc',
       method: 'post',
-      params: {},
+      params: param,
       data: {},
     });
     if (result) {
