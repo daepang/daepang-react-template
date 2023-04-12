@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
+import Router from 'next/router';
 
 import { loginState } from 'src/store';
 
@@ -12,8 +13,13 @@ const Login = () => {
 
   // Login Proc API 통신 테스트 소스
   const loginProc = async () => {
-    const apiResult = await fetchLoginProc({ id: inputId, pw: inputPw });
-    console.log('login result : ' + apiResult);
+    const apiResult: any = await fetchLoginProc({ id: inputId, password: inputPw });
+    if (apiResult && apiResult?.code === 'SUC_PROC_0000') {
+      setLoginInfo(() => {
+        return { id: apiResult?.response?.loginId, name: '' };
+      });
+      Router.push('/main');
+    }
   };
 
   return (
