@@ -19,6 +19,8 @@ const Login = () => {
         return { id: apiResult?.response?.loginId, name: '' };
       });
       Router.push('/main');
+    } else if (apiResult && apiResult?.message) {
+      window.alert(apiResult?.message);
     }
   };
 
