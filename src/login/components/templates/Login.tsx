@@ -16,7 +16,7 @@ const Login = () => {
     const apiResult: any = await fetchLoginProc({ id: inputId, password: inputPw });
     if (apiResult && apiResult?.code === 'SUC_PROC_0000') {
       setLoginInfo(() => {
-        return { id: apiResult?.response?.loginId, name: '' };
+        return { id: apiResult?.response?.loginId, name: apiResult?.response?.profileName };
       });
       Router.push('/main');
     } else if (apiResult && apiResult?.message) {
