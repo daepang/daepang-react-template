@@ -9,7 +9,8 @@ const Main = () => {
   return (
     <>
       <h1>Main Page</h1>
-      <h1>{loginInfo.id}님 환영합니다.</h1>
+      <h1>로그인 계정 : {loginInfo.id}</h1>
+      <h1>프로필 닉네임 : {loginInfo.profileName}</h1>
     </>
   );
 };
