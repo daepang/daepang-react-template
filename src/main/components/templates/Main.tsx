@@ -11,6 +11,7 @@ const Main = () => {
       <h1>Main Page</h1>
       <h1>로그인 계정 : {loginInfo.id}</h1>
       <h1>프로필 닉네임 : {loginInfo.name}</h1>
+      <h1>환영합니다.</h1>
     </>
   );
 };
